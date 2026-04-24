@@ -13,7 +13,7 @@ import com.example.FoodFly.service.ItemNameService;
 
 @RestController
 @RequestMapping("/items")
-@CrossOrigin("*")
+
 public class ItemNameController {
 
 @Autowired ItemNameService is;

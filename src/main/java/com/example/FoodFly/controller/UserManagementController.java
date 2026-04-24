@@ -22,7 +22,7 @@ import com.example.FoodFly.service.UserManagementService;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "*")
+
 public class UserManagementController {
 
 	private final UserManagementService userservice; 

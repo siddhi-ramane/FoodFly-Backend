@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.FoodFly.enitity.MenuItems;
 import com.example.FoodFly.service.AdminService;
 
-@RestController("/admin")
+
 public class AdminController {
 
 	@Autowired

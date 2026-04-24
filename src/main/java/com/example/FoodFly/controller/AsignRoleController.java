@@ -16,7 +16,7 @@ import com.example.FoodFly.service.AssignRoleService;
 
 @RestController
 @RequestMapping("/Role")
-@CrossOrigin("*")
+
 public class AsignRoleController {
 
 	@Autowired

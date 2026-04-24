@@ -17,7 +17,7 @@ import com.example.FoodFly.enitity.MenuItems;
 import com.example.FoodFly.service.MenuItemsService;
 
 @RestController
-@CrossOrigin("*")
+
 @RequestMapping("/menuItems")
 public class MenuItemsController {
 

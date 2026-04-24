@@ -22,7 +22,7 @@ import com.example.FoodFly.enitity.MenuItems;
 import com.example.FoodFly.service.CartService;
 
 @RestController
-@CrossOrigin("*")
+
 @RequestMapping(("/cart"))
 public class CartController {
 

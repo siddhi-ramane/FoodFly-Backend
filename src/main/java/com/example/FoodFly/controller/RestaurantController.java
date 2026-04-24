@@ -19,7 +19,7 @@ import com.example.FoodFly.service.RestaurantService;
 
 @RestController
 @RequestMapping("/menu")
-@CrossOrigin("*")
+
 public class RestaurantController {
 
 	@Autowired

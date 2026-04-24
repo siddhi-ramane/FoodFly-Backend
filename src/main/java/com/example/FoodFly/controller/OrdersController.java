@@ -18,7 +18,7 @@ public class OrdersController {
 	@Autowired
 	private OrdersService oo;
 	
-	 @CrossOrigin(origins = "*")
+	
 	 
 	 
 	 

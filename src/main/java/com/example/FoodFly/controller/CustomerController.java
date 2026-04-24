@@ -15,7 +15,7 @@ import com.example.FoodFly.service.CustomerSerice;
 
 @RestController
 @RequestMapping("/customerDetails")
-@CrossOrigin(origins = "*")
+
 public class CustomerController {
 
 	@Autowired
@@ -44,7 +44,11 @@ public class CustomerController {
 	
 	
 	
-	
+	@PostMapping("/send-otp")
+	public String sendOtp(@RequestBody String email) {
+		cs.sendotpservice(email);
+	    return "OTP sent";
+	}
 	
 	
 	

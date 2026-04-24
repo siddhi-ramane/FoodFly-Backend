@@ -15,7 +15,7 @@ import com.example.FoodFly.service.CusineTypeService;
 
 @RestController
 @RequestMapping("/cuisine")
-@CrossOrigin("*")
+
 public class CusineTypeController {
 
 	@Autowired CusineTypeService cs;
