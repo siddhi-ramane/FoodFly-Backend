@@ -1,5 +1,6 @@
 package com.example.FoodFly.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import com.example.FoodFly.service.AssignRoleService;
 
 @RestController
 @RequestMapping("/Role")
-
+@CrossOrigin(origins = "https://food-fly-frontend-three.vercel.app")
 public class AsignRoleController {
 
 	@Autowired
