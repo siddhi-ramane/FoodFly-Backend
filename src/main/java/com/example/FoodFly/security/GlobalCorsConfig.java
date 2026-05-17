@@ -16,7 +16,9 @@ public class GlobalCorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                   
-                        .allowedOrigins("https://food-fly-frontend-three.vercel.app")
+//                        .allowedOrigins("https://food-fly-frontend-three.vercel.app")
+                .allowedOriginPatterns("*")
+                
 
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 

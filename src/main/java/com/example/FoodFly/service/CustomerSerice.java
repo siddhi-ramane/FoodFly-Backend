@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.FoodFly.Repository.CustomerRepo;
@@ -19,6 +20,9 @@ public class CustomerSerice {
 	
 	@Autowired
 	public EmailService es;
+	
+	@Autowired
+	public PasswordEncoder passwordEncoder;
 
 	public Registration registeracc(Registration regis) {
 		// TODO Auto-generated method stub
@@ -33,6 +37,8 @@ public class CustomerSerice {
                 "The FoodFly Team";
 		
 	    es.sendEmail(regis.getEmail(), subject, message);
+	    
+	    regis.setPassword(passwordEncoder.encode(regis.getPassword()));
 	    return rs.save(regis);
 	}
 
@@ -40,10 +46,11 @@ public class CustomerSerice {
 		// TODO Auto-generated method stub
 		
 		Registration customer = rs.findByEmail(login.getEmail()).orElseThrow(()->new ResourceNotFoundException("Id not Found"));
+		
 
-			if(!customer.getPassword().equals(login.getPassword())) {
-				throw new RuntimeException("Invalid Password");
-			}
+		if(!passwordEncoder.matches(login.getPassword(), customer.getPassword())) {
+		    throw new RuntimeException("Invalid Password");
+		}
 			
 			if ("0".equals(customer.getIsApproved())) {
 		        customer.setIsApproved("1");
