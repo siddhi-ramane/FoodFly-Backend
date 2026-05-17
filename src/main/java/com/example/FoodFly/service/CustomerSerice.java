@@ -37,6 +37,7 @@ public class CustomerSerice {
                 "The FoodFly Team";
 		
 	    es.sendEmail(regis.getEmail(), subject, message);
+	    regis.setIsApproved("1");
 	    
 	    regis.setPassword(passwordEncoder.encode(regis.getPassword()));
 	    return rs.save(regis);
@@ -52,10 +53,7 @@ public class CustomerSerice {
 		    throw new RuntimeException("Invalid Password");
 		}
 			
-			if ("0".equals(customer.getIsApproved())) {
-		        customer.setIsApproved("1");
-		        rs.save(customer);
-		    }
+		
 			return 	customer;
 			
 		
