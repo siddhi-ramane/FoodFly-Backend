@@ -14,17 +14,11 @@ public class GlobalCorsConfig {
 
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                  
-//                        .allowedOrigins("https://food-fly-frontend-three.vercel.app")
-                .allowedOriginPatterns("*")
-                
-
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
-
-                        .allowedHeaders("*")
-
-                        .allowCredentials(true);
+            	registry.addMapping("/**")
+                .allowedOrigins("https://food-fly-frontend-three.vercel.app")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
             }
         };
     }
