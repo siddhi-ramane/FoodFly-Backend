@@ -36,7 +36,7 @@ public class CustomerSerice {
                 "Happy Eating,\n" +
                 "The FoodFly Team";
 		
-	    es.sendEmail(regis.getEmail(), subject, message);
+//	    es.sendEmail(regis.getEmail(), subject, message);
 	    regis.setIsApproved("1");
 	    
 	    regis.setPassword(passwordEncoder.encode(regis.getPassword()));
