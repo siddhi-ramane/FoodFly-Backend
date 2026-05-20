@@ -21,11 +21,21 @@ public class SecurityConfig {
             HttpSecurity http,
             CorsConfigurationSource corsConfigurationSource) throws Exception {
 
-        http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource))
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+    	 http
+         .csrf(csrf -> csrf.disable())
 
-        return http.build();
+         .authorizeHttpRequests(auth -> auth
+             .requestMatchers(
+                 "/customerDetails/login",
+                 "/customerDetails/register",
+                 "/menuItems/**"
+             ).permitAll()
+
+             .anyRequest().permitAll()
+         )
+
+         .formLogin(form -> form.disable());
+
+     return http.build();
     }
 }
