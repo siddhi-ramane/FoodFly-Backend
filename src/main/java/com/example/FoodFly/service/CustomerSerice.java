@@ -36,7 +36,7 @@ public class CustomerSerice {
                 "Happy Eating,\n" +
                 "The FoodFly Team";
 		
-//	    es.sendEmail(regis.getEmail(), subject, message);
+	    es.sendEmail(regis.getEmail(), subject, message);
 	    regis.setIsApproved("1");
 	    
 	    regis.setPassword(passwordEncoder.encode(regis.getPassword()));
@@ -46,15 +46,24 @@ public class CustomerSerice {
 	public Registration loginservice(Registration login) {
 		// TODO Auto-generated method stub
 		
-		Registration customer = rs.findByEmail(login.getEmail()).orElseThrow(()->new ResourceNotFoundException("Id not Found"));
-		
+		 Registration customer = rs.findByEmail(login.getEmail())
+		            .orElseThrow(() -> new RuntimeException("Email not found"));
 
-		if(!passwordEncoder.matches(login.getPassword(), customer.getPassword())) {
-		    throw new RuntimeException("Invalid Password");
-		}
-			
-		
-			return 	customer;
+		    System.out.println("Entered Password: " + login.getPassword());
+		    System.out.println("Stored Password: " + customer.getPassword());
+
+		    boolean match = passwordEncoder.matches(
+		            login.getPassword(),
+		            customer.getPassword()
+		    );
+
+		    System.out.println("Password Match: " + match);
+
+		    if (!match) {
+		        throw new RuntimeException("Invalid Password");
+		    }
+
+		    return customer;
 			
 		
 	}
